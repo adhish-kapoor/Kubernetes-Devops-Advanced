@@ -7,8 +7,6 @@ metadata:
   name: web-application
 spec:
   replicas: 4
-  strategy:
-    type: Recreate
   selector:
     matchLabels:
       app: web-application
@@ -41,9 +39,9 @@ spec:
                 key: MYSQL_ROOT_USER
           - name: MYSQL_ROOT_PASSWORD
             valueFrom:
-              configMapKeyRef:
-                name: app-config
-                key: MYSQL_ROOT_PASSWORD
+              secretKeyRef:
+                name: mysql-pass
+                key: password
           - name: MYSQL_ROOT_HOST
             valueFrom:
               configMapKeyRef:
@@ -64,7 +62,7 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: flask-service
+  name: web-service
 spec:
   ports:
   - port: 8282
