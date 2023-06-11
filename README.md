@@ -1,1 +1,1 @@
-# rest-api-mysql-k3d
+MySQL DB and service API deployment on K8
