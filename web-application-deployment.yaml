@@ -18,9 +18,9 @@ spec:
         app: web-application
     spec:
       containers:
-      - image: <image-name:image-tag >  
+      - image: adhishkapoor1607/web-api  
         name: web-application
-        imagePullPolicy: Always        
+        imagePullPolicy: Always
         resources:
           limits:
             cpu: "0.3"

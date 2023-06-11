@@ -6,7 +6,7 @@ data:
   FLASK_APP: app.py
   MYSQL_ROOT_USER: root
   MYSQL_ROOT_PASSWORD: admin
-  MYSQL_ROOT_HOST: "<place holder>"
+  MYSQL_ROOT_HOST: ""
   MYSQL_ROOT_PORT: "3306"
   MYSQL_ROOT_DB: mysql
   FLASK_APP_PORT: "8282"
