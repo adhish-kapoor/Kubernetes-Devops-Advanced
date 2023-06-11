@@ -4,7 +4,7 @@ kind: Deployment
 metadata:
   labels:
     app: web-application 
-  name: web-application 
+  name: web-application
 spec:
   replicas: 4
   strategy:
@@ -59,3 +59,17 @@ spec:
               configMapKeyRef:
                 name: app-config
                 key: MYSQL_ROOT_DB
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: flask-service
+spec:
+  ports:
+  - port: 8282
+    protocol: TCP
+    targetPort: 8282
+  selector:
+    app: web-application
+  type: LoadBalancer
