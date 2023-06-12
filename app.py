@@ -25,7 +25,7 @@ def index():
 def get_users():
     cursor = db.cursor()
     cursor.execute("SELECT * FROM USERS")
-    data = cursor.fetchall()
+    data = cursor.fetchone()
     db.close()
     response = jsonify(data)
     response.status_code = 200
