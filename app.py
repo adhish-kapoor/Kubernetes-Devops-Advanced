@@ -14,14 +14,19 @@ db = MySQLDatabase(database=MYSQL_ROOT_DB, user=MYSQL_ROOT_USER, password=MYSQL_
 
 app = Flask(__name__)
 
-"""Function to test the functionality of the API"""
+"""Function to get users"""
 @app.route("/")
 def index():
-    cursor = db.cursor()
-    cursor.execute("SELECT VERSION()")
-    data = cursor.fetchone()
-    db.close()
-    return "Users are : %s " % data
+    try:
+        cursor = db.cursor()
+        cursor.execute("SELECT * FROM USERS")
+        data = cursor.fetchall()
+        db.close()
+        resp = jsonify(data)
+        resp.status_code = 200
+        return "Users are : %s " % resp
+    except Exception as e:
+        return jsonify(str(e))
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0', port=int(FLASK_APP_PORT))
