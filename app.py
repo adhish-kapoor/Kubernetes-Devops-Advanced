@@ -1,5 +1,5 @@
 import os
-from flask import Flask
+from flask import Flask, jsonify
 from peewee import MySQLDatabase, IntegerField
 
 MYSQL_ROOT_USER = os.getenv('MYSQL_ROOT_USER')
@@ -27,4 +27,6 @@ def get_users():
     cursor.execute("SELECT * FROM USERS")
     data = cursor.fetchall()
     db.close()
-    return "Users are :\n %s " % data
+    response = jsonify(data)
+    response.status_code = 200
+    return "Users are :\n %s " % response

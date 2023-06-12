@@ -16,7 +16,7 @@ spec:
         app: web-application
     spec:
       containers:
-      - image: adhishkapoor1607/web-api  
+      - image: adhishkapoor1607/web-api:latest
         name: web-application
         imagePullPolicy: Always
         resources:
