@@ -17,11 +17,6 @@ app = Flask(__name__)
 """Function to test the functionality of the API"""
 @app.route("/")
 def index():
-    return "This is Home Page"
-
-"""Function to retrieve all users from the MySQL database"""
-@app.route('/users', methods=["GET"])
-def get_users():
     cursor = db.cursor()
     cursor.execute("SELECT VERSION()")
     data = cursor.fetchone()
