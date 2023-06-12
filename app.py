@@ -1,6 +1,6 @@
 import os
 from flask import Flask, jsonify
-from peewee import MySQLDatabase, IntegerField
+from peewee import MySQLDatabase
 
 MYSQL_ROOT_USER = os.getenv('MYSQL_ROOT_USER', 'root')
 MYSQL_ROOT_PASSWORD = os.getenv('MYSQL_ROOT_PASSWORD', 'admin')
@@ -23,12 +23,10 @@ def index():
 @app.route('/users', methods=["GET"])
 def get_users():
     cursor = db.cursor()
-    cursor.execute("SELECT * FROM USERS")
-    data = cursor.fetchall()
+    cursor.execute("SELECT VERSION()")
+    data = cursor.fetchone()
     db.close()
-    response = jsonify(data)
-    response.status_code = 200
-    return "Users are :\n %s " % response
+    return "Users are : %s " % data
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0', port=int(FLASK_APP_PORT))
