@@ -7,5 +7,5 @@ data:
   MYSQL_ROOT_USER: root
   MYSQL_ROOT_HOST: "10.52.1.6"
   MYSQL_ROOT_PORT: "3306"
-  MYSQL_ROOT_DB: webappdb
+  MYSQL_ROOT_DB: mysql
   FLASK_APP_PORT: "8282"
