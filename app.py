@@ -24,7 +24,7 @@ def index():
         db.close()
         resp = jsonify(data)
         resp.status_code = 200
-        return "Users are : %s " % resp
+        return resp
     except Exception as e:
         return jsonify(str(e))
 
