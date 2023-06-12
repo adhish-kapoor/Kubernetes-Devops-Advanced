@@ -19,7 +19,7 @@ app = Flask(__name__)
 def index():
     try:
         cursor = db.cursor()
-        cursor.execute("SELECT * FROM USERS")
+        cursor.execute("select * from users")
         data = cursor.fetchall()
         db.close()
         resp = jsonify(data)
