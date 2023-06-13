@@ -1,11 +1,11 @@
 ## Link for code repo
-`https://github.com/adhish-kapoor/Kubernetes-Devops-Advanced`
+https://github.com/adhish-kapoor/Kubernetes-Devops-Advanced
 
 ## Docker hub URL for docker images
-`https://hub.docker.com/repository/docker/adhishkapoor1607/web-api/general`
+https://hub.docker.com/repository/docker/adhishkapoor1607/web-api/general
 
 ## Expose the API to fetch records from DB
-To Get all users: `http://34.67.248.81:8282/` is used.
+To Get all users: http://34.67.248.81:8282/ is used.
 34.67.248.81 is the External IP of LoadBalancer `web-service`.
 8282 is the PORT used for my service.
 
