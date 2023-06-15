@@ -1,13 +1,13 @@
 ## Link for code repo
 https://github.com/adhish-kapoor/Kubernetes-Devops-Advanced
 
-## Docker hub URL for docker images
+## Docker hub URL for docker image
 https://hub.docker.com/repository/docker/adhishkapoor1607/web-api/general
 
 ## Expose the API to fetch records from DB
-To Get all users: http://34.67.248.81:8282/ is used.
+http://34.67.248.81:8282/ is used to retrieve records from DB. 
 34.67.248.81 is the External IP of LoadBalancer `web-service`.
-8282 is the PORT used for my service.
+8282 is the PORT used for the service.
 
 # Below steps are for execution reference:
 
@@ -27,14 +27,15 @@ This repo contains code that
 ## Secrets
 `Kubernetes Secrets` file `mysql-secret.yaml` to store password of root user of the MySQL server.
 
-## Deployments
+## Deployments and Services
 Get the secrets, persistent volume in place and apply the deployments for the `MySQL` database and `Flask Web API`
 
 1. Add secrets to your `kubernetes cluster`: `kubectl create -f mysql-secret.yaml`
 2. Create the `persistent volume` and `persistent volume claim` for the database: `kubectl apply -f mysql-pv.yaml`
 3. Create the `MySQL` deployment: `kubectl apply -f mysql-pod.yaml`
-4. Create MySQL service: `kubectl create -f mysql-service.yaml`
-5. Create the `Flask API` deployment: `kubectl apply -f web-application-deployment.yaml`
+4. Create `MySQL service`: `kubectl create -f mysql-service.yaml`
+5. Add `DB configurations`: `kubectl apply -f config-map.yaml`
+6. Create the `Flask Web API` deployment and service `web-service`: `kubectl apply -f web-application-deployment.yaml`
 
 ## ConfigMap
 In `config-map.yaml` file, replace MYSQL_ROOT_HOST value with the IP from command `kubectl get pod k8s-mysql -o template --template={{.status.podIP}}`.
