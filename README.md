@@ -27,19 +27,20 @@ This repo contains code that
 ## Secrets
 `Kubernetes Secrets` file `mysql-secret.yaml` to store password of root user of the MySQL server.
 
-## Deployments and Services
+## Deployments, Services and PersistentVolume
 Get the secrets, persistent volume in place and apply the deployments for the `MySQL` database and `Flask Web API`
 
 1. Add secrets to your `kubernetes cluster`: `kubectl create -f mysql-secret.yaml`
-2. Create the `persistent volume` and `persistent volume claim` for the database: `kubectl apply -f mysql-pv.yaml`
-3. Create the `MySQL` deployment: `kubectl apply -f mysql-pod.yaml`
-4. Create `MySQL service`: `kubectl create -f mysql-service.yaml`
-5. Add `DB configurations`: `kubectl apply -f config-map.yaml`
-6. Create the `Flask Web API` deployment and service `web-service`: `kubectl apply -f web-application-deployment.yaml`
+2. Create `storageclass`: `kubectl apply -f storageclass.yaml`
+3. Create the `persistent volume` and `persistent volume claim` for the database: `kubectl apply -f mysql-pv.yaml`
+4. Create the `MySQL` deployment: `kubectl apply -f mysql-pod.yaml`
+5. Create `MySQL service`: `kubectl create -f mysql-service.yaml`
+6. Add `DB configurations` from `config-map.yaml`: `kubectl apply -f config-map.yaml`
+7. Create the `Flask Web API` deployment and service `web-service`: `kubectl apply -f web-application-deployment.yaml`
 
 ## ConfigMap
-In `config-map.yaml` file, replace MYSQL_ROOT_HOST value with the IP from command `kubectl get pod k8s-mysql -o template --template={{.status.podIP}}`.
-Then use command `kubectl apply -f config-map.yaml`
+In `config-map.yaml` file, replace MYSQL_ROOT_HOST value by using command `kubectl get pod k8s-mysql -o template --template={{.status.podIP}}`.
+Then again use command `kubectl apply -f config-map.yaml` for correct configuration.
 
 ## Creating table to insert records
 1. Use command `kubectl exec k8s-mysql -it -- bash` to connect to MySQL pod.
