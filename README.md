@@ -47,11 +47,11 @@ Then again use command `kubectl apply -f config-map.yaml` for correct configurat
 2. Use command `mysql -u root -p` and enter the password in the bash.
 3. Create table `users` in `mysql` database and insert records.
 
-a) USE mysql;
-b) CREATE TABLE users(user_id INT PRIMARY KEY AUTO_INCREMENT, user_name VARCHAR(255), user_email VARCHAR(255));
-c) INSERT INTO users values("1", "JRK", "jrk@gmail.com");
-   INSERT INTO users values("2", "Sudesh", "sd@gmail.com");
-   INSERT INTO users values("3", "Anil", "Anil@gmail.com");
+a) `USE mysql;`
+b) `CREATE TABLE users(user_id INT PRIMARY KEY AUTO_INCREMENT, user_name VARCHAR(255), user_email VARCHAR(255));`
+c) `INSERT INTO users values("1", "JRK", "jrk@gmail.com");`
+   `INSERT INTO users values("2", "Sudesh", "sd@gmail.com");`
+   `INSERT INTO users values("3", "Anil", "Anil@gmail.com");`
 
 
 
