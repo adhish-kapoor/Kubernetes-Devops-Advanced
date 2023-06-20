@@ -46,11 +46,12 @@ Then again use command `kubectl apply -f config-map.yaml` for correct configurat
 1. Use command `kubectl exec k8s-mysql -it -- bash` to connect to MySQL pod.
 2. Use command `mysql -u root -p` and enter the password in the bash.
 3. Create table `users` in `mysql` database and insert records.
-USE mysql;
-CREATE TABLE users(user_id INT PRIMARY KEY AUTO_INCREMENT, user_name VARCHAR(255), user_email VARCHAR(255));
-INSERT INTO users values("1", "JRK", "jrk@gmail.com");
-INSERT INTO users values("2", "Sudesh", "sd@gmail.com");
-INSERT INTO users values("3", "Anil", "Anil@gmail.com");
+
+a) USE mysql;
+b) CREATE TABLE users(user_id INT PRIMARY KEY AUTO_INCREMENT, user_name VARCHAR(255), user_email VARCHAR(255));
+c) INSERT INTO users values("1", "JRK", "jrk@gmail.com");
+   INSERT INTO users values("2", "Sudesh", "sd@gmail.com");
+   INSERT INTO users values("3", "Anil", "Anil@gmail.com");
 
 
 
