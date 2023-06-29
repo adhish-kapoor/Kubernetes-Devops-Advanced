@@ -5,7 +5,7 @@ metadata:
 data:
   FLASK_APP: app.py
   MYSQL_ROOT_USER: root
-  MYSQL_ROOT_HOST: "10.52.1.6" #Replace correct value by using command mentioned in README file
+  MYSQL_ROOT_HOST: "10.52.2.7" #Replace correct value by using command mentioned in README file
   MYSQL_ROOT_PORT: "3306"
   MYSQL_ROOT_DB: mysql
   FLASK_APP_PORT: "8282"
